@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link  type="text/css" rel="stylesheet" href="styles.css">
+    
+  
+</head>
+  <body>
+   
+    <%- include('partials/header',{username:username,pic:pic}) %>
+    <div class="container">
+      <div class="left-container">
+        <div class="heading">
+          <h1>TODO APP</h1>
+          <p>Add tasks to your list by typing to the right and press&shy;ing Add button. You may then view pending tasks below.</p>
+        </div>
+          <div id="todo-item" class="todo-item"></div>
+              <ul id="todo-item" class="taskList">
+
+              </ul>
+          </div>
+      </div>
+      <div class="right-container">
+          <div class="input-section" >
+            <form action="/upload" method="post" enctype="multipart/form-data">
+              <input id="userInput" placeholder="Enter task" name="todoText" />
+              <select id="prioritySelector" name="priority" >
+                  <option value="high">High</option>
+                  <option value="medium">Medium</option>
+                  <option value="low">Low</option>
+              </select>
+               <input type="file" placeholder="pic" name="pic" value="pic" required> 
+              <button id="submitTodo"  type="submit" value="submit">Add Task</button>
+            </form>
+          </div>
+      </div>
+  </body>
+  <script src="/todoScript.js"></script>
+</html> 
