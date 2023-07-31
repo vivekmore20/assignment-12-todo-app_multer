@@ -2,58 +2,7 @@ const submitTodoNode = document.getElementById("submitTodo");
 const userInputNode = document.getElementById("userInput");
 const prioritySelectorNode = document.getElementById("prioritySelector");
 const todoListNode = document.getElementById("todo-item");
-// submitTodoNode.addEventListener("click", function () {
-//   const todoText = userInputNode.value;
-//   const priority = prioritySelectorNode.value;
-//   const pic = document.getElementById("pic").name;
-//   console.log(pic);
-//   if (!todoText || !priority) {
-//     alert("Please enter a todo");
-//     return;
-//   }
-//   const todo = {
-//     userid: new Date().getTime().toString(),
-//     todoText,
-//     priority,
-//     completed:false,
-//     pic
-//   };
 
-//   fetch("/todo", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(todo),
-//   }).then(function (response) {
-//     if (response.status === 200) {
-//       showTodoInUI(todo);
-//     }else if(response.status===400){
-//       alert("Please login to add todo");
-//     } else {
-//       alert("something weird happened");
-//     }
-//   });
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   return readAllTasks();
-// });
-function readAllTasks() { 
-  fetch("/todo-data")
-    .then(function (response) { 
-      if (response.status === 200) {
-        return response.json();
-      } else {
-        alert("something weird happened");
-      }
-    })
-    .then(function (todos) {
-      todos.forEach(function (todo) {
-        showTodoInUI(todo);
-      });
-    });
-}
 
 function showTodoInUI(todo) {
   const todoTextNode = document.createElement("li");
