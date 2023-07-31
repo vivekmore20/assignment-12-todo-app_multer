@@ -36,6 +36,25 @@ const todoListNode = document.getElementById("todo-item");
 //   });
 // });
 
+// document.addEventListener("DOMContentLoaded", function () {
+//   return readAllTasks();
+// });
+function readAllTasks() { 
+  fetch("/todo-data")
+    .then(function (response) { 
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        alert("something weird happened");
+      }
+    })
+    .then(function (todos) {
+      todos.forEach(function (todo) {
+        showTodoInUI(todo);
+      });
+    });
+}
+
 function showTodoInUI(todo) {
   const todoTextNode = document.createElement("li");
   const node = document.createElement("div");

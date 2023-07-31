@@ -124,7 +124,7 @@ app.post("/upload",function(req,res){
           res.status(500).send("error");
           return;
       }
-      res.render("index",{username:req.session.username,pic:req.session.pic});
+      res.redirect("/");
   } 
   )
 })
